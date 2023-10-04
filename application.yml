@@ -1,0 +1,21 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: Storm
+    
+
+# Supabase Configuration
+supabase:
+  url: https://vermiinqbutcpiqqhlfe.supabase.co
+  apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcm1paW5xYnV0Y3BpcXFobGZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYzMTQ3ODYsImV4cCI6MjAxMTg5MDc4Nn0.8Uvjp_ZrHDPUJ3yAkjOFS4hPh2RAnF-1UX3EXLT6fIw
+
+# Database Configuration (if needed)
+#datasource:
+#  url: jdbc:postgresql://your-database-host:5432/your-database-name
+#  username: your-database-username
+#  password: your-database-password
+#  driver-class-name: org.postgresql.Driver
+
+# Additional Spring Boot Configuration (if needed)
+server:
+  port: 8080
