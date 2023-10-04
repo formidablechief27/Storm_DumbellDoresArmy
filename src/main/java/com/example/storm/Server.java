@@ -19,12 +19,13 @@ public class Server {
 
 	public static String ID = "";
 	public static LocalDateTime server_time;
+	public static InputStream serviceAccount = null;
 	
     public static void main(String[] args) {
     	ClassLoader classloader = Server.class.getClassLoader();
 		File file = new File(Objects.requireNonNull(classloader.getResource("key.json")).getFile());
 		try {
-			InputStream serviceAccount =
+			serviceAccount =
 	                classloader.getResourceAsStream("key.json");
 
 	        FirebaseOptions options = new FirebaseOptions.Builder()

@@ -35,11 +35,6 @@ import org.springframework.http.HttpStatus;
 @Controller
 public class LoginController {
 	
-    @GetMapping("/start")
-    public String launch(Model model) {
-    	return "login.html";
-    }
-	
     @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
     	if(password.length() < 6) {

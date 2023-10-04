@@ -1,318 +1,215 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
-    <style>
-        #myList {
-            list-style-type: none;
-        }
-        body,html{
-			height: 100%;
-			margin: 0;
-			background: #7F7FD5;
-	       background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-	        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-		}
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		.chat{
-			margin-top: auto;
-			margin-bottom: auto;
-		}
-		.card{
-			height: 500px;
-			border-radius: 15px !important;
-			background-color: rgba(0,0,0,0.4) !important;
-		}
-		.contacts_body{
-			padding:  0.75rem 0 !important;
-			overflow-y: auto;
-			white-space: nowrap;
-		}
-		.msg_card_body{
-			overflow-y: auto;
-		}
-		.card-header{
-			border-radius: 15px 15px 0 0 !important;
-			border-bottom: 0 !important;
-		}
-	 .card-footer{
-		border-radius: 0 0 15px 15px !important;
-			border-top: 0 !important;
-	}
-		.container{
-			align-content: center;
-		}
-		.search{
-			border-radius: 15px 0 0 15px !important;
-			background-color: rgba(0,0,0,0.3) !important;
-			border:0 !important;
-			color:white !important;
-		}
-		.search:focus{
-		     box-shadow:none !important;
-           outline:0px !important;
-		}
-		.type_msg{
-			background-color: rgba(0,0,0,0.3) !important;
-			border:0 !important;
-			color:white !important;
-			height: 60px !important;
-			overflow-y: auto;
-		}
-			.type_msg:focus{
-		     box-shadow:none !important;
-           outline:0px !important;
-		}
-		.attach_btn{
-	border-radius: 15px 0 0 15px !important;
-	background-color: rgba(0,0,0,0.3) !important;
-			border:0 !important;
-			color: white !important;
-			cursor: pointer;
-		}
-		.send_btn{
-	border-radius: 0 15px 15px 0 !important;
-	background-color: rgba(0,0,0,0.3) !important;
-			border:0 !important;
-			color: white !important;
-			cursor: pointer;
-		}
-		.search_btn{
-			border-radius: 0 15px 15px 0 !important;
-			background-color: rgba(0,0,0,0.3) !important;
-			border:0 !important;
-			color: white !important;
-			cursor: pointer;
-		}
-		.contacts{
-			list-style: none;
-			padding: 0;
-		}
-		.contacts li{
-			width: 100% !important;
-			padding: 5px 10px;
-			margin-bottom: 15px !important;
-		}
-	.active{
-			background-color: rgba(0,0,0,0.3);
-	}
-		.user_img{
-			height: 70px;
-			width: 70px;
-			border:1.5px solid #f5f6fa;
-		
-		}
-		.user_img_msg{
-			height: 40px;
-			width: 40px;
-			border:1.5px solid #f5f6fa;
-		
-		}
-	.img_cont{
-			position: relative;
-			height: 70px;
-			width: 70px;
-	}
-	.img_cont_msg{
-			height: 40px;
-			width: 40px;
-	}
-	.online_icon{
-		position: absolute;
-		height: 15px;
-		width:15px;
-		background-color: #4cd137;
-		border-radius: 50%;
-		bottom: 0.2em;
-		right: 0.4em;
-		border:1.5px solid white;
-	}
-	.offline{
-		background-color: #c23616 !important;
-	}
-	.user_info{
-		margin-top: auto;
-		margin-bottom: auto;
-		margin-left: 15px;
-	}
-	.user_info span{
-		font-size: 20px;
-		color: white;
-	}
-	.user_info p{
-	font-size: 10px;
-	color: rgba(255,255,255,0.6);
-	}
-	.video_cam{
-		margin-left: 50px;
-		margin-top: 5px;
-	}
-	.video_cam span{
-		color: white;
-		font-size: 20px;
-		cursor: pointer;
-		margin-right: 20px;
-	}
-	.msg_cotainer{
-		margin-top: auto;
-		margin-bottom: auto;
-		margin-left: 10px;
-		border-radius: 25px;
-		background-color: #82ccdd;
-		padding: 10px;
-		position: relative;
-	}
-	.msg_cotainer_send{
-		margin-top: auto;
-		margin-bottom: auto;
-		margin-right: 10px;
-		border-radius: 25px;
-		background-color: #78e08f;
-		padding: 10px;
-		position: relative;
-	}
-	.msg_time{
-		position: absolute;
-		left: 0;
-		bottom: -15px;
-		color: rgba(255,255,255,0.5);
-		font-size: 10px;
-	}
-	.msg_time_send{
-		position: absolute;
-		right:0;
-		bottom: -15px;
-		color: rgba(255,255,255,0.5);
-		font-size: 10px;
-	}
-	.msg_head{
-		position: relative;
-	}
-	#action_menu_btn{
-		position: absolute;
-		right: 10px;
-		top: 10px;
-		color: white;
-		cursor: pointer;
-		font-size: 20px;
-	}
-	.action_menu{
-		z-index: 1;
-		position: absolute;
-		padding: 15px 0;
-		background-color: rgba(0,0,0,0.5);
-		color: white;
-		border-radius: 15px;
-		top: 30px;
-		right: 15px;
-		display: none;
-	}
-	.action_menu ul{
-		list-style: none;
-		padding: 0;
-	margin: 0;
-	}
-	.action_menu ul li{
-		width: 100%;
-		padding: 10px 15px;
-		margin-bottom: 5px;
-	}
-	.action_menu ul li i{
-		padding-right: 10px;
-	
-	}
-	.action_menu ul li:hover{
-		cursor: pointer;
-		background-color: rgba(0,0,0,0.2);
-	}
-	@media(max-width: 576px){
-	.contacts_card{
-		margin-bottom: 15px !important;
-	}
-	}
-    </style>
+    <title>Chat Room </title>
+
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script>
+		var stompClient=null
+
+
+
+function sendMessage(){
+
+
+ let jsonOb={
+	 name:localStorage.getItem("name"),
+	 content:$("#message-value").val()
+ }
+
+ stompClient.send("/app/message",{},JSON.stringify(jsonOb));
+
+
+
+}
+
+
+
+function connect()
+{
+
+	 let socket=new SockJS("/server1")
+
+	 stompClient=Stomp.over(socket)
+
+	 stompClient.connect({},function(frame){
+
+		 console.log("Connected : "+frame)
+
+		 $("#name-from").addClass('d-none')
+		   $("#chat-room").removeClass('d-none')
+
+
+			 //subscribe
+			 stompClient.subscribe("/topic/return-to",function(response){
+
+					 showMessage(JSON.parse(response.body))
+
+			 })
+
+
+
+	 })
+
+}
+
+
+function showMessage(message)
+{
+
+ $("#message-container-table").append(`<tr><td><b>${message.name} :</b> ${message.content}</td></tr>`)
+
+}
+
+
+
+
+
+$(document).ready((e)=>{
+
+
+$("#login").click(()=>{
+
+
+	let name=$("#name-value").val()
+	localStorage.setItem("name",name)
+	$("#name-title").html(`Welcome , <b>${name} </b>`)
+	connect();
+
+
+})
+
+$("#send-btn").click(()=>{
+ sendMessage()
+})
+
+$("#logout").click(()=>{
+
+ localStorage.removeItem("name")
+ if(stompClient!==null)
+ {
+	 stompClient.disconnect()
+
+	  $("#name-from").removeClass('d-none')
+	  $("#chat-room").addClass('d-none')
+	  console.log(stompClient)
+ }
+
+})
+
+})
+	</script>
+
 </head>
-<body>
-    <h1></h1>
-    <div class = "card-body msg_card_body">
-        <div class="d-flex justify-content-start mb-4">
-            <div class = "msg_cotainer" style = "margin:auto; width: 1000px; align-items: center;">
-                <ul id="myList" th:each="item : ${list}">
-                    <li th:text="${item}"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<body class="bg-dark " >
 
-    <div class = "card-footer" style = "display: flex;">
-        <div class = "input-group" style = "display: flex;">
-            <div class="input-group mb-3" style = "margin:auto; width: 1000px; align-items: center;">
-                <input type="text" id="newCommentText" class="form-control type_msg" name="newCommentText" placeholder="Type a message ..." style="flex: 1;">
-                <div class="input-group-append">
-                    <span class="input-group-text send_btn" type="submit">
-                        <i class="fas fa-location-arrow"></i>
-                    </span>
+<div id="name-from" class="bg-primary d-flex align-items-center">
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-4 offset-md-4">
+
+
+                <div class="input-group">
+
+                    <input type="text"
+                           placeholder="Enter your name"
+                           id="name-value"
+                           autofocus
+                           class="form-control"
+                        >
+
+                    <div class="input-group-append">
+
+                        <button class="btn btn-dark" id="login">Enter</button>
+
+                    </div>
+
+
+
+                    </div>
+
+
+
                 </div>
+
             </div>
-            
+
         </div>
+
     </div>
 
-    <script>
-        // JavaScript code to apply styling
-        document.addEventListener("DOMContentLoaded", function () {
-        var listItems = document.querySelectorAll("#myList li");
+<div id="chat-room" class="d-none">
 
-        listItems.forEach(function (item) {
-            var text = item.textContent;
-            if (text.startsWith("Self:")) {
-                // Remove the first 5 characters
-                var modifiedText = text.substring(5);
-                // Add padding for right alignment
-                item.textContent = modifiedText;
-                item.style.textAlign = 'right';
-            }
-        });
-    });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-    <script>
-        var stompClient = Stomp.over(new SockJS('/chat'));
-    
-        stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
-    
-            stompClient.subscribe('/topic/messages', function (response) {
-                var message = JSON.parse(response.body);
-                var messageList = document.getElementById('myList');
-                var messageElement = document.createElement('li');
-                messageElement.textContent = message;
 
-                if (message.startsWith('Self:')) {
-                    messageElement = messageElement.substring(5);
-                    messageElement.style.textAlign = 'right';
-                }
+    <div class="container-fluid">
 
-                messageList.appendChild(messageElement);
-                        console.log(message);
-                    });
-                });
-    
-        function sendMessage() {
-            var message = { content: document.getElementById('newCommentText').value };
-            console.log(message);
-            stompClient.send("/app/chat", {}, JSON.stringify(message));
-        }
-    </script>
-    
+        <div class="row">
+
+
+            <div class="col-md-6 offset-md-3">
+
+
+                <div class="card mt-3">
+                    <div class="card-header">
+
+                        <h3 id="name-title"></h3>
+
+                    </div>
+                    <div class="card-body">
+
+                        <div class="input-group">
+
+                            <input type="text"
+                                   placeholder="Enter your message "
+                                   id="message-value"
+                                   autofocus
+                                   class="form-control"
+                            >
+
+                            <div class="input-group-append">
+
+                                <button class="btn btn-dark" id="send-btn">Send</button>
+                                <button class="btn btn-dark" id="logout">Logout</button>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="table-responsive mt-3">
+
+                            <table id="message-container-table">
+
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
 </body>
 </html>
