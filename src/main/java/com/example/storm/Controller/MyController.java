@@ -67,4 +67,33 @@ public class MyController {
 		return "dashboard.html";
 	}
 	
+	@GetMapping("/deaf_eng_videos")
+	public String d1(Model model) {
+		return "deaf_eng_videos.html";
+	}
+	
+	@GetMapping("/deaf_gk_videos")
+	public String d2(Model model) {
+		return "deaf_gk_videos.html";
+	}
+	
+	@GetMapping("/deaf_math_videos")
+	public String d3(Model model) {
+		return "deaf_math_videos.html";
+	}
+	
+	@GetMapping("/deaf_signlang_videos")
+	public String d4(Model model) {
+		return "deaf_signlang_videos.html";
+	}
+	
+	@GetMapping("/mentors")
+	public String mentors(Model model) {
+		return "mentors.html";
+	}
+	
+	@GetMapping("/games")
+	public String games(Model model) {
+		return "games.html";
+	}
 }

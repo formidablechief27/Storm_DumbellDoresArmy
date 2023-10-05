@@ -19,39 +19,23 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form action="/login" method="post" class="sign-in-form">
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" name = "username" placeholder="Username" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name = "password" placeholder="Password" />
                     </div>
-                    <a href="/index" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">LOGIN</a>
-
-                    <p class="social-text">Or Sign in with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                    <input type = "submit" value = "LOGIN" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">
                 </form>
-                <form action="#" class="sign-up-form">
+                <form action="/register" method = "post" class="sign-up-form">
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" name = "username" placeholder="Username" />
                     </div>
                     <!-- <div class="input-field">
             <i class="fas fa-envelope"></i>
@@ -59,37 +43,22 @@
           </div> -->
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name = "password" placeholder="Password" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Are you teacher or student" />
+                        <input type="text" name = "userType" placeholder="Are you teacher or student" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Please enter your disability" />
+                        <input type="text" name = "disType" placeholder="Please enter your disability" />
                     </div>
-                    <a href="/index" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">SIGN UP</a>
-                    <p class="social-text">Or Sign up with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                    <input type = "submit" value = "SIGN UP" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">
                 </form>
             </div>
         </div>
 
-        <div class="panels-container" ">
+        <div class="panels-container">
       <div class=" panel left-panel">
             <div class="content" id="textToRead">
                 <h3>Welcome back</h3>
@@ -120,8 +89,111 @@
         </div>
     </div>
     </div>
-    <script src="scripts.js"></script>
-    <script src="app.js"></script>
+    <script>
+        document.addEventListener('keydown', function (event) {
+    if (event.key.toLowerCase() === 'u') {
+        // Select the username input field by its ID
+        const usernameInput = document.querySelector('input[type="text"]');
+
+        // Focus on the username input field
+        if (usernameInput) {
+            usernameInput.focus();
+
+            // Prevent the default behavior (inputting the "u" character) when focusing on the username field
+            event.preventDefault();
+        }
+    } else if (event.key.toLowerCase() === 'p') {
+        // Select the password input field by its ID
+        const passwordInput = document.querySelector('input[type="password"]');
+
+        // Focus on the password input field
+        if (passwordInput) {
+            passwordInput.focus();
+
+            // Prevent the default behavior (inputting the "p" character) when focusing on the password field
+            event.preventDefault();
+        }
+    } else if (event.key.toLowerCase() === 'r') {
+        // Select the Register button by its ID
+        const registerButton = document.getElementById('sign-up-btn');
+
+        // Trigger a click event on the Register button
+        if (registerButton) {
+            registerButton.click();
+
+            // Wait for a short delay for the transition to the Register page
+            setTimeout(() => {
+                // Get the text content of the h3 and paragraph within the Register panel
+                const registerHeader = document.querySelector('.panel.left-panel .content h3');
+                const registerParagraph = document.querySelector('.panel.left-panel .content p');
+
+                // Combine the text content of the h3 and paragraph
+                const registerText = `${registerHeader.textContent}. ${registerParagraph.textContent}`;
+
+                // Convert the text to speech
+                convertTextToSpeech(registerText);
+            }, 1000); // Adjust the delay (in milliseconds) as needed
+        }
+    } else if (event.key.toLowerCase() === 'g') {
+        // Redirect to the "games.html" page
+        window.location.href = "games.html";
+    }
+    else if (event.key.toLowerCase() === 'e') {
+        // Redirect to the "games.html" page
+        window.location.href = "videocards.html";
+    }
+    else if (event.key.toLowerCase() === 'q') {
+        // Redirect to the "games.html" page
+        window.location.href = "quiz.html";
+    }
+    
+});
+
+// Function to convert text to speech with custom rate
+function convertTextToSpeech(text, rate = 1.0) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    // Set the speech rate
+    utterance.rate = rate;
+
+    synth.speak(utterance);
+}
+
+// Automatically trigger TTS when the page loads for the welcome message
+window.addEventListener('load', () => {
+    const text = document.getElementById('textToRead').innerText;
+
+    // Adjust the rate as needed (0.8 for slower speech in this example)
+    convertTextToSpeech(text, 0.8);
+});
+window.addEventListener('load', () => {
+    // Select a specific element with the "ttr" class (e.g., a div or p element)
+    const textElement = document.querySelector('.ttr');
+
+    if (textElement) {
+        // Retrieve the inner text of the selected element
+        const text = textElement.innerText;
+
+        // Adjust the rate as needed (0.8 for slower speech in this example)
+        convertTextToSpeech(text, 0.8);
+    }
+});
+    </script>
+    <script>
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
+
+sign_up_btn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+});
+
+    </script>
 </body>
 
 </html>

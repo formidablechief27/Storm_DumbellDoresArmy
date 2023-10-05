@@ -47,11 +47,11 @@ public class VideoController {
             urls.add(key);
 		}
 		model.addAttribute("videoUrls", urls);
-		return "videos.html";
+		return "mentors.html";
 	}
 	
 	@PostMapping("/uploadfile")
-	public String video(@RequestParam("file") MultipartFile file, Model model) {
+	public void video(@RequestParam("file") MultipartFile file, Model model) {
 		if(!file.isEmpty()) {
 			String link = generateDownloadUrl(file);
 			int keys = keys();
@@ -76,8 +76,6 @@ public class VideoController {
 			if(key == null) break;
             urls.add(key);
 		}
-		model.addAttribute("videoUrls", urls);
-		return "videos.html";
 	}
 	
 	public String generateDownloadUrl(MultipartFile multipartFile) {

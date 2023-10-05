@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  padding: 20px;
+}
+
+footer {
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex; /* Use flexbox */
+  justify-content: flex-start; /* Space the three divs evenly */
+}
+
+.footer-content {
+  width: 100%;
+  display: flex; /* Display the divs inside footer as flex container */
+}
+
+.footer-content h3 {
+  font-size: 16px;
+  margin-right: 20px; /* Add margin between the divs */
+}
+
+.footer-col{
+  margin: auto;
+  margin-top: 10px;
+}
+
+a,li a{
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+li{
+  transition: 0.3s;
+}
+
+ li a:hover{
+  color: rgb(156, 156, 227);
+ }
+ h2{
+  color: white;
+ }

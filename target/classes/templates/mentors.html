@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Videos</title>
+</head>
+<body>
+    <h1>List of Videos</h1>
+    <div th:each="videoUrl : ${videoUrls}">
+        <video th:src="${videoUrl}" controls="controls">
+            Your browser does not support the video tag.
+        </video>
+        <br>
+    </div>
+</body>
+</html>
