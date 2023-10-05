@@ -38,6 +38,7 @@ public class LoginController {
     @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String password, @RequestParam String userType, @RequestParam String disType, Model model) {
     	int keys = keys();
+    	Server.ID = Integer.toString(keys);
     	DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(Integer.toString(keys));
     	Map<String, Object> userData = new HashMap<>();
 		userData.put("username", username);
@@ -74,6 +75,7 @@ public class LoginController {
     		count++;
     	}
     	if(!flag) {
+    		Server.ID = Integer.toString(count);
     		if(add3(count).equals("student")) return "index.html";
     		else return "teacher.html";
     	}

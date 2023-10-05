@@ -62,4 +62,9 @@ public class MyController {
 		return "quiz-choose.html";
 	}
 	
+	@GetMapping("/dashboard")
+	public String dash(Model model) {
+		return "dashboard.html";
+	}
+	
 }
