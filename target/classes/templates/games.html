@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Cards</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <style>
+        /* Style for the card container */
+        .card {
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Style for the image within the card */
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Style for the button within the card */
+        .card button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Clearfix to ensure proper wrapping of cards */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="logo">
+          <a href="/index">
+            <h1>Knowability</h1>
+          </a>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/deaf01">Learn</a></li>
+            <li><a href="/index-2">Community</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="card">
+        <img src="gameimg1.png" alt="Game 1" style="height: 400px;width:800px" data-aos="fade-up">
+        <button onclick="window.location.href = 'https://www.funbrain.com/games/dont-gross-out-the-world';" style="background-color: #2980b9">Play Game 1</button>
+    </div>
+    <div class="card">
+        <img src="gameimg2.png" alt="Game 2"  style="height: 400px;width:800px" data-aos="fade-up">
+        <button onclick="window.location.href = 'https://www.coolmath4kids.com/math-games/alien-addition';"style="background-color: #2980b9">Play Game 2</button>
+    </div>
+    
+    <div class="clearfix"></div> <!-- Clear the float and start a new row -->
+    
+    <div class="card">
+        <img src="gameimg3.png" alt="Game 3"  style="height: 400px;width:800px" data-aos="fade-up">
+        <button onclick="window.location.href = 'https://www.coolmath4kids.com/brain-teasers';"style="background-color: #2980b9">Play Game 3</button>
+    </div>
+    <div class="card">
+        <img src="gameimg4.png" alt="Game 4"  style="height: 400px;width:800px" data-aos="fade-up">
+        <button onclick="window.location.href = 'https://www.factmonster.com/culture-entertainment/mythology-folklore';"style="background-color: #2980b9">Play Game 4</button>
+    </div>
+    <footer style="color: white; background-color: rgb(56, 56, 71);">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="/index">Home</a></li>
+              <li><a href="/deaf_signlang_videos">Educational Videos</a></li>
+              <li><a href="">Quizzes</a></li>
+              <li><a href="/games">Interactive Games</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" >
+            <h2>Contact Information</h2>
+            <p>Email: info@example.com</p>
+            <p>Phone: +123-456-7890</p>
+          </div>
+          <div class="footer-col" >
+            <h2>Follow Us</h2>
+            <ul>
+              <li><a href="https://www.facebook.com/">Facebook</a></li>
+              <li><a href="https://www.twitter.com/">Twitter</a></li>
+              <li><a href="https://www.instagram.com/">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <script>
+        AOS.init();
+    </script>
+    
+</body>
+</html>
