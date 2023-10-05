@@ -1,132 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>About</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content=""> 
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="css/responsive.css">
-<!-- fevicon -->
-<link rel="icon" href="images/fevicon.png" type="image/gif" />
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .about-us {
+    height: 100vh;
+    width: 100%;
+    padding: 90px 0;
+    background: #ddd;
+  }
+
+  .pic {
+    height: auto;
+    width: 302px;
+  }
+
+  .about {
+    width: 1130px;
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .text {
+    width: 540px;
+  }
+
+  .text h2 {
+    font-size: 90px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+  }
+
+  .text h5 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  span {
+    color: #4070f4;
+  }
+
+  .text p {
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1px;
+  }
+
+  .data {
+    margin-top: 30px;
+  }
+
+  .hire {
+    font-size: 18px;
+    background: #4070f4;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: 0.5s;
+  }
+
+  .hire:hover {
+    background: #000;
+    border: 1px solid #4070f4;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> An About Us Page | CoderGirl </title>
+  <!---Custom Css File!--->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
+</head>
+
 <body>
-  <!--header section start -->
-    <div class="header_section background_bg">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-          </div>
-          <div class="col-md-9">
-            <div class="menu_text">
-              <ul>
-                <div class="togle_3">
-                  <div class="menu_main">
-                    <div class="padding_left0"><a href="#">Register</a>
-                    <span class="padding_left0"><a href="#">Login</a></span></div>
-                  </div>
-                  <!-- <div class="shoping_bag"><img src="images/search-icon.png"></div> -->
-                </div> 
-                <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">Home</a>
-                  <a href="services.html">Services</a>
-                  <a href="about.html">About</a>
-                  <a href="choose.html">Choose</a>
-                  <a href="team.html">Team</a>
-                  <a href="contact.html">Contact Us</a>
-                </div>
-                </div>
-                <span class="navbar-toggler-icon"></span>
-                <span onclick="openNav()"><img src="images/toggle-icon.png" class="toggle_menu"></span>
-              </ul>
-            </div>      
-          </div>
-        </div>
+  <div class="container1">
+    <div class="logo">
+      <a href="/index">
+        <h1>Knowability</h1>
+      </a>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/deaf01">Learn</a></li>
+        <li><a href="/Moderna/index-2">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <section class="about-us">
+    <div class="about">
+      <!--<img src="girl.png" class="pic">-->
+      <div class="text">
+        <h3>About Us</h3>
+        <h2  style="color:rgb(18, 61, 95);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">KNOWABILITY</h2>
+        <img src="aboutt.png" alt="">
+        <p>Knowability is a platform committed to empowering differently-abled individuals through education, community
+          support, interactive games, and quizzes designed for self-assessment.</p>
       </div>
     </div>
-    <!-- header section end -->
-    <!-- about section start -->
-    <div class="about_section layout_padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div><img src="images/img-2.png" class="image_2"></div>
-          </div>
-          <div class="col-md-6">
-            <h1 class="services_taital"><span>About </span> <img src="images/icon-1.png"> <span style="color: #1f1f1f">Cleaning</span></h1>
-            <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-            <div class="contact_bt_1"><a href="#">READ MORE<span class="contact_padding"><img src="images/contact-icon1.png"></span></a></div>
-          </div>
-        </div>
+  </section>
+  <footer style="color: white; background-color: rgb(56, 56, 71);">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Educational Videos</a></li>
+          <li><a href="#">Quizzes</a></li>
+          <li><a href="#">Interactive Games</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" >
+        <h2>Contact Information</h2>
+        <p>Email: info@example.com</p>
+        <p>Phone: +123-456-7890</p>
+      </div>
+      <div class="footer-col" >
+        <h2>Follow Us</h2>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
       </div>
     </div>
-    <!-- about section end -->
-    <!-- copyright section start -->
-    <div class="copyright_section">
-      <div class="container">
-        <p class="copyright_text">Copyright 2020 All Right Reserved By <a href="https://html.design">Free html  Templates</a></p>
-      </div>
-    </div>
-    <!-- copyright section end -->
-    <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript --> 
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    $(".fancybox").fancybox({
-    openEffect: "none",
-    closeEffect: "none"
-    });
-         
-    $(".zoom").hover(function(){
-         
-    $(this).addClass('transition');
-    }, function(){
-         
-    $(this).removeClass('transition');
-    });
-    });
-    </script> 
-    <script>
-     function openNav() {
-     document.getElementById("myNav").style.width = "100%";
-    }
-     function closeNav() {
-     document.getElementById("myNav").style.width = "0%";
-    }
-    </script>  
+  </footer>
 </body>
+
 </html>

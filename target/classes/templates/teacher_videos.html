@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Video Tutorials</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <style>
+    .text_under_videos{
+      text-align: center;
+      font-size: 1.3rem;
+      transition: 0.3s;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    :hover.card .text_under_videos{
+      color: rgb(184, 184, 236);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container1">
+      <div class="logo">
+        <a href="/index">
+          <h1>Knowability</h1>
+        </a>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/deaf01">Learn</a></li>
+          <li><a href="/index-2">Community</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- <main id="main"> -->
+
+    <h1 style="padding-left: 20px;margin-top: 30px;text-shadow: 1px 1px 2px black;">Video Lectures by our Teachers</h1>
+
+    <!-- ======= Service Details Section ======= -->
+    <section class="service-details">
+      <div class="container">
+        
+
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_L2P9jMeY6c" frameborder="0" allowfullscreen></iframe><br>
+                <div class="text_under_videos">
+                    Lesson 1 
+                    <button style="outline: none;border: 0;background-color: transparent;" onclick="changeFill('first')">
+                        <i class="bi bi-hand-thumbs-up" id="first"></i>
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cNF4qpavT_M" frameborder="0" allowfullscreen></iframe><br>
+                <div class="text_under_videos">
+                  Lesson 2
+                  <button style="outline: none;border: 0;background-color: transparent;" onclick="changeFill('second')">
+                        <i class="bi bi-hand-thumbs-up" id="second"></i>
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/aSuRMgeRq8I" frameborder="0" allowfullscreen></iframe><br>
+                <div class="text_under_videos">
+                  Lesson 3
+                  <button style="outline: none;border: 0;background-color: transparent;" onclick="changeFill('third')">
+                        <i class="bi bi-hand-thumbs-up" id="third"></i>
+                    </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ENAZ0xtezoc" frameborder="0" allowfullscreen></iframe><br>
+                <div class="text_under_videos">
+                  Lesson 4
+                  <button style="outline: none;border: 0;background-color: transparent;" onclick="changeFill('fourth')">
+                        <i class="bi bi-hand-thumbs-up" id="fourth"></i>
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-Byd_fnv22Q" frameborder="0" allowfullscreen></iframe><br>
+                <div class="text_under_videos">
+                  Lesson 5
+                  <button style="outline: none;border: 0;background-color: transparent;" onclick="changeFill('fifth')">
+                        <i class="bi bi-hand-thumbs-up" id="fifth"></i>
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Service Details Section -->
+  
+  <footer style="color: white; background-color: rgb(56, 56, 71);">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Educational Videos</a></li>
+          <li><a href="#">Quizzes</a></li>
+          <li><a href="#">Interactive Games</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" >
+        <h2>Contact Information</h2>
+        <p>Email: info@example.com</p>
+        <p>Phone: +123-456-7890</p>
+      </div>
+      <div class="footer-col" >
+        <h2>Follow Us</h2>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </footer>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    var flag = 0;
+    function changeFill(id){
+      var element = document.getElementById(id);
+      if (flag == 0) {
+        element.classList.remove("bi-hand-thumbs-up");
+        element.classList.add("bi-hand-thumbs-up-fill");
+        flag = 1;
+      } else{
+          element.classList.remove("bi-hand-thumbs-up-fill");
+          element.classList.add("bi-hand-thumbs-up");
+          flag = 0;
+      }
+    }
+  </script>
+
+</body>
+
+</html>

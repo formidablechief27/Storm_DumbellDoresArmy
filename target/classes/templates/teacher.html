@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- basic -->
@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
         media="screen">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
 
     <link href="Moderna/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="Moderna/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -79,28 +81,13 @@
                                 <div class="menu_main">
                                     <div style="display:flex">
                                         <span style="margin-left: 20px;text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);"><a
-                                                href="#">AboutUs</a></span>
+                                                href="/about">AboutUs</a></span>
                                         <span style="margin-left: 20px;text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);"><a
-                                                href="#">Learn</a></span>
+                                                href="/deaf01">Learn</a></span>
                                         <span style="margin-left: 20px;text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);"><a
                                                 href="/chat-room-start">Community</a></span>
                                     </div>
-                                    <!-- </div>
-                <div class="shoping_bag"><img src="images/search-icon.png"></div>
-              </div> -->
-                                    <!-- <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">About</a>
-                  <a href="services.html">Community</a>
-                  <a href="about.html">Profile</a>
-                  <a href="choose.html">Campaign</a>
-                  <a href="team.html">Learn</a>
-                  <a href="contact.html">Contact Us</a>
-                </div>
-              </div> -->
-                                    <!-- <span class="navbar-toggler-icon"></span> -->
-                                    <!-- <span onclick="openNav()"><img src="images/toggle-icon.png" class="toggle_menu"></span> -->
+                                    
                         </ul>
                     </div>
                 </div>
@@ -122,9 +109,7 @@
                                 href="/contact">Start Learning<span class="contact_padding"><img
                                         src="images/contact-icon.png"></span></a></div>
                     </div>
-                    <!-- <div class="col-sm-2">
-            <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
-          </div> -->
+                    
                     <div class="col-sm-5" style="margin-left: 150px;">
                         <div><img src="images/img-1.png" class="image_1" style="height: 500px; width:2000px; "></div>
                     </div>
@@ -186,28 +171,32 @@
                             </div>
                             <div class="col-sm-5">
                                 <div class="image_4"><img src="images/image2.png" style="margin-top: 20px;"></div>
-    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    
 
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
+                                <footer style="color: white; background-color: rgb(56, 56, 71);">
+                                    <div class="footer-content">
+                                      <div class="footer-col">
+                                        <h2>Quick Links</h2>
+                                        <ul>
+                                          <li><a href="/index">Home</a></li>
+                                              <li><a href="/deaf01">Educational Videos</a></li>
+                                              <li><a href="">Quizzes</a></li>
+                                              <li><a href="/games">Interactive Games</a></li>
+                                              <li><a href="/contact">Contact Us</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="footer-col" >
+                                        <h2>Contact Information</h2>
+                                        <p>Email: info@example.com</p>
+                                        <p>Phone: +123-456-7890</p>
+                                      </div>
+                                      <div class="footer-col" >
+                                        <h2>Follow Us</h2>
+                                        <ul>
+                                          <li><a href="https://www.facebook.com/">Facebook</a></li>
+                                              <li><a href="https://www.twitter.com/">Twitter</a></li>
+                                              <li><a href="https://www.instagram.com/">Instagram</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </footer>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -46,7 +46,7 @@
         }
 
         .card:hover {
-            background-color: rgb(163, 163, 251);
+            background-color:#89CBEB;
             cursor: pointer;
             height: auto;
         }
@@ -77,7 +77,7 @@
                 <ul>
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/deaf01">Learn</a></li>
-                    <li><a href="/index2">Community</a></li>
+                    <li><a href="/index-2">Community</a></li>
                 </ul>
             </div>
         </div>
@@ -93,24 +93,24 @@
                     journey</span></h1>
         </div>
         <div style="display: flex;">
-            <p style="margin-left: 30px;">Begin your educational journey with Knowability, where you can explore a
+            <p style="margin-left: 30px;">Begin your educational journey with Knowability, where you can <br>explore a
                 world of opportunities. Whether
-                you're eager to improve your English language skills, delve into the wonders of mathematics, or
+                you're eager to improve <br>your English language skills, delve into the wonders of mathematics, or<br>
                 expand your
-                general knowledge, we're here to empower you.Our diverse courses cater to learners of all
+                general knowledge, we're here to empower you.Our diverse<br> courses cater to learners of all
                 backgrounds and
-                abilities, offering a platform for growth and enrichment. Moreover, with the invaluable guidance of
-                our
-                dedicated mentors, you can truly enhance your knowledge and skills. Start your learning adventure
+                abilities, offering a platform <br> for growth and enrichment. Moreover, with the invaluable guidance of
+                our<br>
+                dedicated mentors, you can truly enhance your knowledge and skills. Start <br> your learning adventure
                 today, and
-                let Knowability be your trusted companion on the path to knowledge and self-improvement.</p>
+                let Knowability be your trusted companion <br> on the path to knowledge and self-improvement.</p>
             <img src="fnimage.png" style="margin-left: 300px; margin-top:-150px" alt="">
         </div>
     </div>
     <br><br><br>
     <section id="cards">
         <div class="row">
-            <div class="card">
+            <div class="card" onclick="window.location.href='/deaf_eng_videos'">
                 <h3 style="font-weight: bold; font-size:30px;margin-left:120px">ENGLISH</h3>
                 <img src="sgnlag.gif" alt="GIF">
                 <h2 class="card-heading">English</h2>
@@ -121,7 +121,7 @@
                         individuals to master English and connect with the broader world.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" onclick="window.location.href='/deaf_sign_videos'">
                 <h3 style="font-weight: bold; font-size:30px;margin-left:80px">SIGN LANGUAUGE</h3>
                 <img src="sgnlag1.gif" alt="GIF">
                 <h2 class="card-heading">Sign Language</h2>
@@ -137,7 +137,7 @@
         </div>
         <br><br><br>
         <div class="row">
-            <div class="card">
+            <div class="card" onclick="window.location.href='/deaf_math_videos'">
                 <h3 style="font-weight: bold; font-size:30px;margin-left:130px">MATHS</h3>
                 <img src="sgnlag2.gif" alt="GIF">
                 <h2 class="card-heading">Maths</h2>
@@ -149,7 +149,7 @@
                         thinking..</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" onclick="window.location.href='/deaf_gk_videos'">
                 <h3 style="font-weight: bold; font-size:30px;margin-left:30px">GENERAL LANGUAGE</h3>
                 <img src="sgnlag3.gif" alt="GIF">
                 <h2 class="card-heading">General knowledge</h2>
@@ -164,8 +164,7 @@
         </div>
         <br><br><br>
         <div class="row">
-            <div class="card">
-                <h3 style="font-weight: bold; font-size:30px;margin-left:120px">MENTORS</h3>
+            <div class="card" onclick="window.location.href=''">MENTORS</h3>
                 <img src="sgnlag4.gif" alt="GIF">
                 <h2 class="card-heading">Mentor</h2>
                 <div class="card-content">
