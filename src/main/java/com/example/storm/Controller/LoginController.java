@@ -36,75 +36,47 @@ import org.springframework.http.HttpStatus;
 public class LoginController {
 	
     @PostMapping("/register")
-    public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
-    	if(password.length() < 6) {
-    		 return "registration-error";
-    	}
-    	try {
-            UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                    .setEmail(email)
-                    .setPassword(password);
-            UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance()
-                    .getReference("users")
-                    .child(userRecord.getUid());
-            Map<String, Object> userData = new HashMap<>();
-            userData.put("username", username);
-            userData.put("email", email);
-            userData.put("password", password);
-            //userData.put("disable", disable);
-            
-            databaseReference.setValue(userData, new DatabaseReference.CompletionListener() {
-				@Override
-				public void onComplete(DatabaseError error, DatabaseReference ref) {
-					if (error != null) {
-                        error.toException().printStackTrace();
-                    } else {
-                    }
-				}
-            });
-            model.addAttribute("username", username);
-            model.addAttribute("email", email);
-            return "index.html";
-        } catch (FirebaseAuthException e) {
-            e.printStackTrace();
-            return "registration-error";
-        }
+    public String registerUser(@RequestParam String username, @RequestParam String password, @RequestParam String userType, @RequestParam String disType, Model model) {
+    	int keys = keys();
+    	DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(Integer.toString(keys));
+    	Map<String, Object> userData = new HashMap<>();
+		userData.put("username", username);
+		userData.put("password", password);
+		userData.put("type", userType);
+		userData.put("disable", disType);
+		databaseRef.updateChildren(userData, new DatabaseReference.CompletionListener() {
+			@Override
+			public void onComplete(DatabaseError error, DatabaseReference ref) {
+				if (error != null) {
+                    error.toException().printStackTrace();
+                } else {
+                }
+			}
+        });
+		if(userType.equals("student")) {
+			return "index.html";
+		}
+		return "teacher.html";
     }
     
     @PostMapping("/login")
-    public String loginUser(@RequestParam String email, @RequestParam String password, Model model) {
-    	try {
-            UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(email);
-            if (userRecord != null) {
-                String uid = userRecord.getUid();
-                DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("password");
-                CompletableFuture<String> future = new CompletableFuture<>();
-                databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        String value = snapshot.getValue(String.class);
-                        if (value != null && value.equals(password)) {
-                            Server.ID = uid;
-                            future.complete(uid);
-                        } else {
-                            future.completeExceptionally(new RuntimeException("Incorrect password"));
-                        }
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        future.completeExceptionally(error.toException());
-                    }
-                });
-                String uidResult = future.get();
-                model.addAttribute("UID", uidResult);
-                return "index.html";
-            } else {
-            	return "login-failure.html";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String loginUser(@RequestParam String username, @RequestParam String password, Model model) {
+    	int count = 0;
+    	boolean flag = true;
+    	while(true) {
+    		String s1 = add(count);
+    		String s2 = add2(count);
+    		if(s1 == null || s2 == null) break;
+    		if(s1.equals(password) && s2.equals(username)) {
+    			flag = false;
+    			break;
+    		}
+    		count++;
+    	}
+    	if(!flag) {
+    		if(add3(count).equals("student")) return "index.html";
+    		else return "teacher.html";
+    	}
 		return "login-failure.html";
     }
     
@@ -133,6 +105,117 @@ public class LoginController {
 			e.printStackTrace();
 		}
         return null;
+	}
+    
+    public int keys() {
+		CompletableFuture<Integer> fu = new CompletableFuture<>();
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("users"); // Replace with your actual node path
+
+        // Add a ValueEventListener to count the child keys
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numberOfKeys = (int) dataSnapshot.getChildrenCount();
+                fu.complete(numberOfKeys);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			return fu.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return 0;
+	}
+    
+    public String add(int number) {
+		String ans = "";
+		DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(Integer.toString(number)).child("password");
+        CompletableFuture<String> future = new CompletableFuture<>();
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                future.complete(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                future.completeExceptionally(error.toException());
+            }
+        });
+        try {
+			return future.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "done";
+	}
+    
+    public String add2(int number) {
+		String ans = "";
+		DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(Integer.toString(number)).child("username");
+        CompletableFuture<String> future = new CompletableFuture<>();
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                future.complete(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                future.completeExceptionally(error.toException());
+            }
+        });
+        try {
+			return future.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "done";
+	}
+    
+    public String add3(int number) {
+		String ans = "";
+		DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(Integer.toString(number)).child("type");
+        CompletableFuture<String> future = new CompletableFuture<>();
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                future.complete(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                future.completeExceptionally(error.toException());
+            }
+        });
+        try {
+			return future.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "done";
 	}
 	
 }

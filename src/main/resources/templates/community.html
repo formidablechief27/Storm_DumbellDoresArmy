@@ -21,15 +21,13 @@
 
 function sendMessage(){
 
-
  let jsonOb={
 	 name:localStorage.getItem("name"),
 	 content:$("#message-value").val()
  }
+ $("#message-value").val("");
 
  stompClient.send("/app/message",{},JSON.stringify(jsonOb));
-
-
 
 }
 
@@ -53,13 +51,19 @@ function connect()
 			 //subscribe
 			 stompClient.subscribe("/topic/return-to",function(response){
 
-					 showMessage(JSON.parse(response.body))
+					 showMessage(JSON.parse(response.body));
 
-			 })
-
-
-
+			 });
+			 fetchInitialMessages();
 	 })
+
+	 function fetchInitialMessages() {
+    $.get("/all", function (messages) {
+        messages.forEach(function (message) {
+            showMessage(message);
+        });
+    });
+}
 
 }
 
@@ -71,85 +75,30 @@ function showMessage(message)
 
 }
 
-
-
-
-
 $(document).ready((e)=>{
 
-
-$("#login").click(()=>{
-
-
-	let name=$("#name-value").val()
-	localStorage.setItem("name",name)
-	$("#name-title").html(`Welcome , <b>${name} </b>`)
-	connect();
-
-
-})
 
 $("#send-btn").click(()=>{
  sendMessage()
 })
 
-$("#logout").click(()=>{
-
- localStorage.removeItem("name")
- if(stompClient!==null)
- {
-	 stompClient.disconnect()
-
-	  $("#name-from").removeClass('d-none')
-	  $("#chat-room").addClass('d-none')
-	  console.log(stompClient)
- }
-
-})
-
 })
 	</script>
+	<script>
+	$(document).ready(function () {
+		var name = document.getElementById("id-value").value || 'default_value_if_ID_is_null';
+		localStorage.setItem("name", name);
+		var name2 = document.getElementById("name-value").value
+		$("#name-title").html("Welcome , <b>" +  name2 + "</b>");
+		connect();
+	});
+</script>
+	
 
 </head>
-<body class="bg-dark " >
-
-<div id="name-from" class="bg-primary d-flex align-items-center">
-
-    <div class="container-fluid">
-
-        <div class="row">
-
-            <div class="col-md-4 offset-md-4">
-
-
-                <div class="input-group">
-
-                    <input type="text"
-                           placeholder="Enter your name"
-                           id="name-value"
-                           autofocus
-                           class="form-control"
-                        >
-
-                    <div class="input-group-append">
-
-                        <button class="btn btn-dark" id="login">Enter</button>
-
-                    </div>
-
-
-
-                    </div>
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+<body class="bg-dark ">
+	<input type="hidden" id="id-value" th:value="${ID}">
+	<input type="hidden" id="name-value" th:value="${uname}">
 
 <div id="chat-room" class="d-none">
 
@@ -168,46 +117,27 @@ $("#logout").click(()=>{
                         <h3 id="name-title"></h3>
 
                     </div>
+					<div class="table-responsive mt-3">
+						<table id="message-container-table">
+						</table>
+					</div>
                     <div class="card-body">
-
                         <div class="input-group">
-
                             <input type="text"
                                    placeholder="Enter your message "
                                    id="message-value"
                                    autofocus
                                    class="form-control"
                             >
-
                             <div class="input-group-append">
-
                                 <button class="btn btn-dark" id="send-btn">Send</button>
-                                <button class="btn btn-dark" id="logout">Logout</button>
-
                             </div>
-
-
-
-                        </div>
-
-
-                        <div class="table-responsive mt-3">
-
-                            <table id="message-container-table">
-
-
-
-                            </table>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
-
 </div>
 
 

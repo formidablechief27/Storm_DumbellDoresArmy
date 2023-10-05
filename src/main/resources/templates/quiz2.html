@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form action="/submit-answers-section2" method="POST">
+        <th:block th:each="question, idx : ${questions}">
+            <div class="question">
+                <p th:text="${question}"></p>
+                <input type="radio" th:name="'q' + ${idx.index}" value="A" th:id="'q' + ${idx.index}A"> A. <span th:text="${optionsA[idx.index]}"></span><br>
+                <input type="radio" th:name="'q' + ${idx.index}" value="B" th:id="'q' + ${idx.index}B"> B. <span th:text="${optionsB[idx.index]}"></span><br>
+            </div>
+        </th:block>
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+</html>

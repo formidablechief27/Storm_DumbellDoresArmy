@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .abc {
+            border-radius: 20px;
+            border: 1px solid #fff;
+            background-color: #2980B9;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+  </style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .green {
+            color: rgb(12, 243, 12);
+        }
+
+        .orange {
+            color: rgb(246, 164, 12);
+        }
+
+        .red {
+            color: rgb(246, 11, 11);
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #2980B9; /* Light border color around the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2980B9; /* Header background color */
+        }
+
+        table tr:first-child th {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div style="display: flex; justify-content: flex-start; height: 80px;background-color: #2980B9; opacity: 0.9;">
+            <div style="width: 50%; display: flex; justify-content: flex-start;">
+                <h1 style="margin: auto;margin-left: 20px;color: white;">Knowability</h1>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <h1 style="display: flex; font-size: 2rem;"><strong>Quiz Results</h1></strong>
+    <div style="display: flex; font-size: 1.3rem;">
+        <p><strong>Subject : <span th:text="${subject}"></span></strong></p>
+    </div>
+    <div style="display: flex; font-size: 1.3rem;">
+        <p style="margin-right: 100px;"><strong>Total Score : <span th:text="${pts}"></span></strong></p>
+        <button class="abc"><a href="/index">Back</a></button>
+    </div>
+    <div style="font-size: 1.2rem;"><table>
+        <tr>
+            <th>Question Number</th>
+            <th>Selected Answer</th>
+            <th>Correct Answer</th>
+            <th>Points</th>
+        </tr>
+        <!-- Loop through the data arrays to create table rows -->
+        <th:block th:each="index : ${#numbers.sequence(0, 9)}">
+            <tr>
+                <td th:text="${num[index]}"></td>
+                <td th:text="${sub[index]}"></td>
+                <td th:text="${ans[index]}"></td>
+                <td th:text="${points[index]}" th:class="${points[index] == 1} ? 'green' : 'red'"></td>
+            </tr>
+        </th:block>
+    </table></div>
+</body>
+</html>

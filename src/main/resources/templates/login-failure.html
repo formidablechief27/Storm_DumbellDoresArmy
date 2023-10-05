@@ -1,77 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Slide Navbar</title>
-    <link rel="stylesheet" type="text/css" href="slide navbar style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="login.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" href=
-        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-        <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css”/>
-        <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-                alert("Incorrect password or username doesn't exist");
-            });
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Sign in & Sign up Form</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            alert("Incorrect password or username doesn't exist");
+        });
+    </script>
+    <style>
+        body {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 min-height: 100vh;
+        }
+ .radio {
+	 margin: 0.5rem;
+}
+ .radio input[type="radio"] {
+	 position: absolute;
+	 opacity: 0;
+}
+ .radio input[type="radio"] + .radio-label:before {
+	 content: '';
+	 background: #f4f4f4;
+	 border-radius: 100%;
+	 border: 1px solid #b4b4b4;
+	 display: inline-block;
+	 width: 1.4em;
+	 height: 1.4em;
+	 position: relative;
+	 top: -0.2em;
+	 margin-right: 1em;
+	 vertical-align: top;
+	 cursor: pointer;
+	 text-align: center;
+	 transition: all 250ms ease;
+}
+ .radio input[type="radio"]:checked + .radio-label:before {
+	 background-color: #3197ee;
+	 box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+ .radio input[type="radio"]:focus + .radio-label:before {
+	 outline: none;
+	 border-color: #3197ee;
+}
+ .radio input[type="radio"]:disabled + .radio-label:before {
+	 box-shadow: inset 0 0 0 4px #f4f4f4;
+	 border-color: #b4b4b4;
+	 background: #b4b4b4;
+}
+ .radio input[type="radio"] + .radio-label:empty:before {
+	 margin-right: 0;
+}
+ 
+    </style>
 </head>
 
 <body>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form method="post" action="/register">
-                <h1>Create Account</h1>
-                <input type="text" id="username" name="username" placeholder="Username" required/>
-                <input type="email" id="email" name="email" placeholder="Email" required/>
-                <input type="password" id="password" name="password" placeholder="Password" required/>
-                <input type="submit" class="abc" placeholder="Sign Up"></a>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form method="post" action="/login">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <!-- <a href="#" class="social"><i class="bi bi-google"></i></a> -->
-                    <!-- <a href="#" class="social"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social"><i class="bi bi-linkedin"></i></a> -->
-                </div>
-                <span>or use your account</span>
-                <input type="email" id="email" name="email" placeholder="Email" required/>
-                <input type="password" id="password" name="password" placeholder="Password" required/>
-                <!-- <a href="#">Forgot your password?</a> -->
-                <input type="submit" class="abc" placeholder="Sign In"></a>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <a href="/login" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">LOGIN</a>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <!-- <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" />
+          </div> -->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <div>
+                        <div class="radio" style = "display: inline-block; margin-right: 20px;">
+                            <input id="radio-1" name="userType" type="radio" value = "teacher">
+                            <label for="radio-1" class="radio-label" style = "display: inline-block; margin-right: 20px;">Teacher</label>
+                          </div>
+                        
+                          <div class="radio" style = "display: inline-block; margin-right: 20px;">
+                            <input id="radio-2" name="userType" type="radio" value = "student">
+                            <label  for="radio-2" class="radio-label" style = "display: inline-block; margin-right: 20px;">Student</label>
+                          </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="radio" style = "display: inline-block; margin-right: 10px;">
+                            <input id="radio-3" name="disType" type="radio" value = "deaf">
+                            <label for="radio-3" class="radio-label" style = "display: inline-block; margin-right: 10px;">Deaf</label>
+                          </div>
+                        
+                          <div class="radio" style = "display: inline-block; margin-right: 10px;">
+                            <input id="radio-4" name="disType" type="radio" value = "blind">
+                            <label  for="radio-4" class="radio-label" style = "display: inline-block; margin-right: 10px;">Blind</label>
+                          </div>
+
+                          <div class="radio" style = "display: inline-block; margin-right: 10px;">
+                            <input id="radio-5" name="disType" type="radio" value = "other">
+                            <label  for="radio-5" class="radio-label" style = "display: inline-block; margin-right: 10px;">Other</label>
+                          </div>
+                    </div>
+                    <a href="/register" class="btn solid" style="padding: 13px 40px; text-align: center; text-decoration:none;">SIGN UP</a>
+                </form>
             </div>
         </div>
-    </div>
 
-    <!-- <footer>
-        <p>
-            Created with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-            - Read how I created this and how you can join the challenge
-            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-        </p>
-    </footer> -->
-    <script src="login.js"></script>
+        <div class="panels-container">
+      <div class=" panel left-panel">
+            <div class="content" id="textToRead">
+                <h3>Welcome back</h3>
+                <p>
+                    <span style="opacity: 0;">If your new here do register Click 'r' to register else press 'u' to enter
+                        your
+                        username and 'p' to enter your password</span>
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                    Register
+                </button>
+            </div>
+            <img src="img/log.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+            <div class="content" id="textToRead">
+                <h3>Welcome, we're glad to have you here!</h3>
+                <p>
+                    Knowability is a platform committed to empowering differently-abled individuals through education,
+                    community support, interactive games, and quizzes designed for self-assessment.
+                    <span style="opacity: 0;">Press 'u' to enter your username and 'p' to enter your password</span>
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                    Sign in
+                </button>
+            </div>
+            <img src="img/register.svg" class="image" alt="" />
+        </div>
+    </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

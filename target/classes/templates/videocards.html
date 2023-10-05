@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card with GIF</title>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <style>
+        .card {
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            overflow: hidden;
+            justify-content: flex-start;
+            transition: all 0.3s ease-in-out;
+
+        }
+
+        /* CSS for the GIF */
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* CSS for the card content */
+        .card-content {
+            padding: 20px;
+            display: none;
+        }
+
+        /* CSS for the heading */
+        .card-heading {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 180px;
+            padding-right: 180px;
+        }
+
+        .card:hover {
+            background-color: rgb(163, 163, 251);
+            cursor: pointer;
+            height: auto;
+        }
+
+        .card:hover h3 {
+            opacity: 0;
+        }
+
+        .card:hover .card-content {
+            display: block;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="container1">
+            <div class="logo">
+                <a href="/index">
+                    <h1>Knowability</h1>
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/deaf01">Learn</a></li>
+                    <li><a href="/index2">Community</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br><br>
+    <div>
+        <div style="display: flex;">
+            <h1><span
+                    style="font-size: 70px; margin-left:30px; color:rgb(18, 61, 95);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Explore
+                    to improve</span> <br><span
+                    style="font-size:35px;margin-left:30px;color:rgb(18, 61, 95);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">your
+                    educational
+                    journey</span></h1>
+        </div>
+        <div style="display: flex;">
+            <p style="margin-left: 30px;">Begin your educational journey with Knowability, where you can explore a
+                world of opportunities. Whether
+                you're eager to improve your English language skills, delve into the wonders of mathematics, or
+                expand your
+                general knowledge, we're here to empower you.Our diverse courses cater to learners of all
+                backgrounds and
+                abilities, offering a platform for growth and enrichment. Moreover, with the invaluable guidance of
+                our
+                dedicated mentors, you can truly enhance your knowledge and skills. Start your learning adventure
+                today, and
+                let Knowability be your trusted companion on the path to knowledge and self-improvement.</p>
+            <img src="fnimage.png" style="margin-left: 300px; margin-top:-150px" alt="">
+        </div>
+    </div>
+    <br><br><br>
+    <section id="cards">
+        <div class="row">
+            <div class="card">
+                <h3 style="font-weight: bold; font-size:30px;margin-left:120px">ENGLISH</h3>
+                <img src="sgnlag.gif" alt="GIF">
+                <h2 class="card-heading">English</h2>
+                <div class="card-content">
+                    <p>Our platform specializes in English language education for deaf students, offering a range of
+                        accessible resources. These include sign language-interpreted video lessons, interactive
+                        flashcards, engaging storytelling, and quizzes. Our goal is to empower deaf
+                        individuals to master English and connect with the broader world.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="font-weight: bold; font-size:30px;margin-left:80px">SIGN LANGUAUGE</h3>
+                <img src="sgnlag1.gif" alt="GIF">
+                <h2 class="card-heading">Sign Language</h2>
+                <div class="card-content">
+                    <p>Welcome to our Sign Language Course! Discover the beauty and power of communication through sign
+                        language. This course provides a hands-on learning experience, teaching you essential signs and
+                        expressions to connect with the Deaf community and beyond. From basic gestures to meaningful
+                        conversations, learn the language that bridges gaps and promotes inclusivity. Start your journey
+                        towards fluency and understanding in sign language with us.</p>
+                </div>
+            </div>
+
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="card">
+                <h3 style="font-weight: bold; font-size:30px;margin-left:130px">MATHS</h3>
+                <img src="sgnlag2.gif" alt="GIF">
+                <h2 class="card-heading">Maths</h2>
+                <div class="card-content">
+                    <p>Welcome to our Mathematics Course! Explore the fascinating world of numbers, shapes, and patterns
+                        through engaging lessons and practical applications. Whether you're a beginner or looking to
+                        deepen your understanding, our course offers a structured and interactive approach to help you
+                        unlock the secrets of mathematics. Join us on this journey of problem-solving and critical
+                        thinking..</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="font-weight: bold; font-size:30px;margin-left:30px">GENERAL LANGUAGE</h3>
+                <img src="sgnlag3.gif" alt="GIF">
+                <h2 class="card-heading">General knowledge</h2>
+                <div class="card-content">
+                    <p>Welcome to our General Knowledge Course! Expand your horizons and enrich your mind with a
+                        comprehensive exploration of facts, concepts, and trivia from various domains. This course is
+                        designed to enhance your awareness of the world, covering history, science, culture, and more.
+                        Join us in this engaging journey to become a well-rounded individual with a broader
+                        understanding of the world we live in. Knowledge is power, and we're here to empower you!</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="card">
+                <h3 style="font-weight: bold; font-size:30px;margin-left:120px">MENTORS</h3>
+                <img src="sgnlag4.gif" alt="GIF">
+                <h2 class="card-heading">Mentor</h2>
+                <div class="card-content">
+                    <p> As an educator on Knowability, you have access to a personalized dashboard
+                        designed to enhance your teaching experience. This dashboard conveniently displays all your
+                        uploaded videos, complete with the total number of hours of educational content you've
+                        contributed. You can track the likes and engagement your videos receive from our community of
+                        learners. Plus, your name is prominently featured, ensuring that your valuable contributions are
+                        recognized. It's your space to make a meaningful impact on the journey of knowledge sharing and
+                        learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="color: white; background-color: rgb(56, 56, 71);">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Educational Videos</a></li>
+                    <li><a href="#">Quizzes</a></li>
+                    <li><a href="#">Interactive Games</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2>Contact Information</h2>
+                <p>Email: info@example.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-col">
+                <h2>Follow Us</h2>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
